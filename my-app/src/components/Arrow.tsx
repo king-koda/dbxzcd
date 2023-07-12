@@ -6,6 +6,8 @@ import CarouselEntityCard from './CarouselEntityCard';
 
 type ArrowProps = { type: 'previous' | 'next'; onClick: () => void };
 
+/** the previous/next components for the carousel
+ */
 const Arrow = ({ type, onClick }: ArrowProps) => {
   return (
     <Flex onClick={onClick}>

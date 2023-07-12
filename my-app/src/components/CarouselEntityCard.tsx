@@ -6,6 +6,8 @@ type Props = {
   stackProps?: StackProps;
 };
 
+/** the base component that wraps each of the carousel items including the arrows
+ *  */
 const CarouselEntityCard = ({ children, stackProps }: Props) => {
   return (
     <VStack

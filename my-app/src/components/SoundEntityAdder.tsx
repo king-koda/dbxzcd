@@ -5,6 +5,8 @@ import CarouselEntityCard from './CarouselEntityCard';
 
 type Props = { name: string; onAdd: () => void };
 
+/** the component to be displayed for devices that haven't been added yet
+ */
 const SoundEntityAdder = ({ name, onAdd }: Props) => {
   return (
     <Flex>

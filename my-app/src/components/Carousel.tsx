@@ -6,6 +6,8 @@ import { possibleEntities } from '../data/fakeData';
 import SoundEntity from './SoundEntity';
 import SoundEntityAdder from './SoundEntityAdder';
 
+/** the complete Carousel component
+ */
 const Carousel = () => {
   const [enabledEntities, setEnabledEntities] = useState(possibleEntities);
 
@@ -15,6 +17,7 @@ const Carousel = () => {
 
   const ref = React.useRef<HTMLDivElement>(null);
 
+  // component that will be rerendered each time a device is added/ removed
   const CarouselScrollable = useMemo(() => {
     const children: JSX.Element[] = [];
 
@@ -33,6 +36,7 @@ const Carousel = () => {
     };
 
     enabledEntities.forEach((enabledEntity, index) => {
+      // show a different component depending on if the device has been added yet or not
       if (enabledEntity?.added) {
         children.push(
           <SoundEntity
@@ -83,7 +87,7 @@ const Carousel = () => {
           type='previous'
           onClick={() => {
             if (ref.current) {
-              ref.current.scrollLeft -= 50;
+              ref.current.scrollLeft -= 100;
             }
           }}
         />
@@ -92,7 +96,7 @@ const Carousel = () => {
           type='next'
           onClick={() => {
             if (ref.current) {
-              ref.current.scrollLeft += 50;
+              ref.current.scrollLeft += 100;
             }
           }}
         />

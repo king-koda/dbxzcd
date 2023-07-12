@@ -12,6 +12,8 @@ type Props = {
   onRemove: () => void;
 };
 
+/** the component to be displayed for already added devices
+ */
 const SoundEntity = ({ data, onSoundToggle, onRemove }: Props) => {
   return (
     <CarouselEntityCard>
