@@ -34,3 +34,5 @@ https://www.flaticon.com/free-icon/tv_1170688
 Logout Icon
 https://icon-icons.com/icon/logout/151219
 
+Rest of the Icons
+https://react-icons.github.io/react-icons/
