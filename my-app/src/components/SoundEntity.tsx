@@ -16,23 +16,22 @@ const SoundEntity = ({ data, onSoundToggle, onRemove }: Props) => {
   return (
     <CarouselEntityCard>
       <Icon
+        className='icon-button'
         as={data.muted ? BsFillVolumeMuteFill : AiTwotoneSound}
         width='64px'
         height='64px'
         onClick={onSoundToggle}
-        _hover={{ cursor: 'pointer' }}
       ></Icon>
       <Text
         color={'black'}
         textColor={'black'}
         fontSize='20px'
         whiteSpace={'nowrap'}
-        style={{ userSelect: 'none' }}
       >
         {data?.name}
       </Text>
 
-      <HStack _hover={{ cursor: 'pointer' }} onClick={onRemove}>
+      <HStack className='icon-button' onClick={onRemove}>
         <Icon
           as={IoMdRemoveCircleOutline}
           width='16px'
@@ -40,13 +39,7 @@ const SoundEntity = ({ data, onSoundToggle, onRemove }: Props) => {
           color={'red'}
           mr={'-1'}
         ></Icon>
-        <Text
-          color={'red'}
-          textColor={'red'}
-          fontWeight='bold'
-          fontSize='14px'
-          style={{ userSelect: 'none' }}
-        >
+        <Text color={'red'} textColor={'red'} fontWeight='bold' fontSize='14px'>
           {`Remove`}
         </Text>
       </HStack>

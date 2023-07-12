@@ -8,20 +8,16 @@ type Props = { name: string; onAdd: () => void };
 const SoundEntityAdder = (props: Props) => {
   const { name, onAdd } = props;
   return (
-    <Flex onClick={onAdd}>
+    <Flex>
       <CarouselEntityCard>
         <Icon
+          className='icon-button'
           as={IoIosAddCircleOutline}
           width='64px'
           height='64px'
-          _hover={{ cursor: 'pointer' }}
+          onClick={onAdd}
         ></Icon>
-        <Text
-          color={'black'}
-          textColor={'black'}
-          fontSize='20px'
-          style={{ userSelect: 'none' }}
-        >
+        <Text color={'black'} textColor={'black'} fontSize='20px'>
           {`${name}`}
         </Text>
       </CarouselEntityCard>

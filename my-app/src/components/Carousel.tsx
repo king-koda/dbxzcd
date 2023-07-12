@@ -2,7 +2,7 @@ import { Flex, HStack } from '@chakra-ui/react';
 import { cloneDeep } from 'lodash';
 import React, { useEffect, useMemo, useState } from 'react';
 import Arrow from './Arrow';
-import { possibleEntities } from './fakeData';
+import { possibleEntities } from '../data/fakeData';
 import SoundEntity from './SoundEntity';
 import SoundEntityAdder from './SoundEntityAdder';
 
@@ -38,7 +38,7 @@ const Carousel = () => {
             }}
             onRemove={() => {
               let enabledEntitiesCopy = cloneDeep(enabledEntities);
-              console.log('remove', enabledEntitiesCopy[index].name);
+
               // use the index to change this entity in the carousel to be enabled
               enabledEntitiesCopy = enabledEntitiesCopy.map((eec) => {
                 if (enabledEntitiesCopy[index].name === eec.name) {
@@ -56,7 +56,6 @@ const Carousel = () => {
           <SoundEntityAdder
             onAdd={() => {
               let enabledEntitiesCopy = cloneDeep(enabledEntities);
-              console.log('add', enabledEntitiesCopy[index].name);
 
               // use the index to change this entity in the carousel to be enabled
               enabledEntitiesCopy = enabledEntitiesCopy.map((eec) => {
@@ -87,7 +86,6 @@ const Carousel = () => {
     );
   }, [enabledEntities]);
 
-  console.log('enabledEntities', enabledEntities);
   return (
     <HStack width='800px'>
       <>
@@ -95,8 +93,6 @@ const Carousel = () => {
           type='previous'
           onClick={() => {
             if (ref.current) {
-              console.log('less');
-
               ref.current.scrollLeft -= 50;
             }
           }}
@@ -106,8 +102,6 @@ const Carousel = () => {
           type='next'
           onClick={() => {
             if (ref.current) {
-              console.log('more');
-
               ref.current.scrollLeft += 50;
             }
           }}

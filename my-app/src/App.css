@@ -44,3 +44,11 @@
 .scrollable {
   -webkit-overflow-scrolling: touch;
 }
+
+.carousel-entity > .chakra-text {
+  user-select: none;
+}
+
+.icon-button:hover {
+  cursor: pointer;
+}
