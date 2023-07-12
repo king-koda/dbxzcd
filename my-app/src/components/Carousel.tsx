@@ -18,6 +18,20 @@ const Carousel = () => {
   const CarouselScrollable = useMemo(() => {
     const children: JSX.Element[] = [];
 
+    const addOrRemove = (index: number) => {
+      let enabledEntitiesCopy = cloneDeep(enabledEntities);
+
+      // use the index to change this entity in the carousel to be enabled
+      enabledEntitiesCopy = enabledEntitiesCopy.map((eec) => {
+        if (enabledEntitiesCopy[index].name === eec.name) {
+          eec.added = !eec.added;
+        }
+        return eec;
+      });
+
+      setEnabledEntities(enabledEntitiesCopy);
+    };
+
     enabledEntities.forEach((enabledEntity, index) => {
       if (enabledEntity?.added) {
         children.push(
@@ -36,37 +50,13 @@ const Carousel = () => {
 
               setEnabledEntities(enabledEntitiesCopy);
             }}
-            onRemove={() => {
-              let enabledEntitiesCopy = cloneDeep(enabledEntities);
-
-              // use the index to change this entity in the carousel to be enabled
-              enabledEntitiesCopy = enabledEntitiesCopy.map((eec) => {
-                if (enabledEntitiesCopy[index].name === eec.name) {
-                  eec.added = false;
-                }
-                return eec;
-              });
-
-              setEnabledEntities(enabledEntitiesCopy);
-            }}
+            onRemove={() => addOrRemove(index)}
           ></SoundEntity>
         );
       } else {
         children.push(
           <SoundEntityAdder
-            onAdd={() => {
-              let enabledEntitiesCopy = cloneDeep(enabledEntities);
-
-              // use the index to change this entity in the carousel to be enabled
-              enabledEntitiesCopy = enabledEntitiesCopy.map((eec) => {
-                if (enabledEntitiesCopy[index].name === eec.name) {
-                  eec.added = true;
-                }
-                return eec;
-              });
-
-              setEnabledEntities(enabledEntitiesCopy);
-            }}
+            onAdd={() => addOrRemove(index)}
             name={enabledEntity.name}
           />
         );
@@ -76,7 +66,7 @@ const Carousel = () => {
     return (
       <Flex
         ref={ref}
-        width='500px'
+        width='800px'
         overflow={'scroll'}
         overflowY='hidden'
         className='scrollable'
@@ -87,7 +77,7 @@ const Carousel = () => {
   }, [enabledEntities]);
 
   return (
-    <HStack width='800px'>
+    <HStack width='1000px'>
       <>
         <Arrow
           type='previous'

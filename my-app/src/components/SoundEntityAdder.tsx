@@ -5,8 +5,7 @@ import CarouselEntityCard from './CarouselEntityCard';
 
 type Props = { name: string; onAdd: () => void };
 
-const SoundEntityAdder = (props: Props) => {
-  const { name, onAdd } = props;
+const SoundEntityAdder = ({ name, onAdd }: Props) => {
   return (
     <Flex>
       <CarouselEntityCard>

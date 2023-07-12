@@ -39,7 +39,13 @@ const SoundEntity = ({ data, onSoundToggle, onRemove }: Props) => {
           color={'red'}
           mr={'-1'}
         ></Icon>
-        <Text color={'red'} textColor={'red'} fontWeight='bold' fontSize='14px'>
+        <Text
+          color={'red'}
+          textColor={'red'}
+          fontWeight='bold'
+          fontSize='14px'
+          userSelect='none'
+        >
           {`Remove`}
         </Text>
       </HStack>
