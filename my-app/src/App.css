@@ -46,6 +46,7 @@
 }
 
 .carousel-entity > .chakra-text {
+  font-family: 'Lucida Console';
   user-select: none;
 }
 

@@ -10,7 +10,9 @@ const CarouselEntityCard = ({ children, stackProps }: Props) => {
   return (
     <VStack
       padding='5'
-      border='2px lightgray solid'
+      border='2px solid'
+      borderColor={'gray.100'}
+      backgroundColor={'gray.200'}
       margin='2'
       minWidth='150px'
       minHeight='150px'

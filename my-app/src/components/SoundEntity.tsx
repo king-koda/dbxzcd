@@ -45,6 +45,7 @@ const SoundEntity = ({ data, onSoundToggle, onRemove }: Props) => {
           fontWeight='bold'
           fontSize='14px'
           userSelect='none'
+          fontFamily={'Lucida Console'}
         >
           {`Remove`}
         </Text>
